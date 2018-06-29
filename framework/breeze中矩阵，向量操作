@@ -1,0 +1,60 @@
+package com.dayima.demo.mllib
+
+import breeze.linalg.{DenseMatrix, DenseVector, diag}
+
+object BreezeDemo {
+  def main(args: Array[String]): Unit = {
+    //全0矩阵
+    val m1 = DenseMatrix.zeros[Double](2, 3)
+    println("======全0矩阵\n" + m1)
+    //单位矩阵
+    val m2 = DenseMatrix.eye[Double](4)
+    println("=====单位矩阵\n" + m2)
+    //对角矩阵
+    val m3 = diag(DenseVector(1.0, 2.0, 3.0))
+    println("======对角矩阵\n" + m3)
+    //按照行创建矩阵
+    val m4 = DenseMatrix((1, 2, 3), (4, 5, 6))
+    println("======按照行创建矩阵\n" + m4)
+    //从函数创建矩阵
+    val m5 = DenseMatrix.tabulate(3, 2) { case (i, j) => i + j }
+    println("=====从函数创建矩阵\n" + m5)
+    //0到1的随机矩阵
+    val m6 = DenseMatrix.rand(2, 3)
+    println("=====0到1的随机矩阵\n" + m6)
+    //从数据创建矩阵
+    val m7 = new DenseMatrix(2, 3, Array(11, 12, 13, 21, 22, 33))
+    println("=====从数据创建矩阵\n" + m7)
+
+    //全0向量
+    val v1 = DenseVector.zeros[Double](4)
+    println("======全0向量\n" + v1)
+    //全1向量
+    val v2 = DenseVector.ones[Double](4)
+    println("=======全1向量\n" + v2)
+    //数值填充向量
+    val v3 = DenseVector.fill(4)(5)
+    println("=======数值填充向量\n" + v3)
+    //随机向量
+    val v4 = DenseVector.range(1, 10, 2)
+    val v5 = DenseVector.rangeD(1, 10, 3)
+    println("=======随机向量\n" + v4)
+    println("=======随机向量\n" + v5)
+    //按照行创建向量
+    val v6 = DenseVector(1, 2, 3)
+    println("=======按照行创建向量\n" + v6)
+    //向量转置
+    val v7 = DenseVector(1, 2, 3).t
+    println("=======向量转置\n" + v7)
+    //从函数创建向量
+    val v8 = DenseVector.tabulate(4)(i => 2 * i)
+    println("=======从函数创建向量\n" + v8)
+    //从数组创建向量
+    val v9 = new DenseVector(Array(1, 2, 3, 4))
+    println("=======从函数创建向量\n" + v9)
+    //0到1的随机向量
+    val v10 = DenseVector.rand(4)
+    println("========0到1的随机向量\n" + v10)
+
+  }
+}
